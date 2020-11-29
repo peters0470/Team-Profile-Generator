@@ -1,4 +1,4 @@
-const employeeCards = [];
+
 
 return `
 <!DOCTYPE html>
