@@ -148,7 +148,7 @@ const questions = {
         {
             type: 'input',
             name: 'email',
-            message: "What is the Intern's email address? \n",
+            message: "What is the Engineers's email address? \n",
             validate: emailInput => {
                 if (emailInput.includes('@') && emailInput.includes('.com')) {
                     return true;
