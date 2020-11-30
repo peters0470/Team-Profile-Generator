@@ -1,5 +1,33 @@
+const generateCards = (employees) => {
+    console.log('employees:', employees);
 
+    const createManager = (manager) => {
+        return `
+        <div class="col s4">
+            <div class="card deep-orange accent-3">
+                <div class="card content teal lighten-3 center-align">
+                    <h2 class="card-title">${manager.getName()}</h2>
+                    <h5><span class="icon icons"><i class="fas fa-briefcase"></i></span>${manager.getRole()}</h5>
+                </div>
+                <div class="card-content">
+                    <div class="card-content">
+                        <span>ID:${manager.getId()}</span>
+                    </div>
+                    <div class="card-content">
+                        <span>Email:<a class='black-text' href='mailto:${manager.getEmail()}'> ${manager.getEmail()}</a></span>
+                    </div>
+                    <div class="card-content">
+                        <span>Office Number: ${manager.officeNumber}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+};
 
+    
+}
+module.exports = (employeeHtml) => {
 return `
 <!DOCTYPE html>
 <html lang="en">
@@ -12,16 +40,17 @@ return `
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <header class='teal lighten-4'>
-        <div class='teal lighten-4'>
+    <header class='deep-orange accent-3'>
+        <div class='deep-orange accent-3'>
             <h1 class='center-align'>My Team</h1>
         </div>
     </header>
     <main>
         <section class='row'>
-            ${generateHtml(employeeHtml)}
+            ${generateCards(employeeHtml)}
         </section>
     </main>
 </body>
 </html>
 `;
+}
