@@ -4,9 +4,8 @@ const generateCards = require('./src/generatecards');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const NumberPrompt = require('inquirer/lib/prompts/number');
 
-const employees = [],
+const employees = [];
 
 const questions = {
 
@@ -173,3 +172,17 @@ const questions = {
         }   
     ]
 };
+
+const addManager = () => {
+    return inquirer
+        .prompt(questions.manager)
+        .then(answers => {
+            const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+            employees.push(manager);
+            
+        });
+};
+
+
+addManager();
+
