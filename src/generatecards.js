@@ -25,6 +25,7 @@ const generateCards = (employees) => {
     `;
 };
 
+
 const createEngineer = (engineer) => {
     return `
             <div class="col s4">
@@ -73,8 +74,17 @@ const createIntern = (intern) => {
         `;
 };
 
+
+const team = [];
+team.push(employees.filter(employee => employee.getRole() === 'Manager').map(manager => createManager(manager)).join(''));
+team.push(employees.filter(employee => employee.getRole() === 'Engineer').map(engineer => createEngineer(engineer)).join(''));
+team.push(employees.filter(employee => employee.getRole() === 'Intern').map(intern => createIntern(intern)).join(''));
+
+return team.join('');
+
+};
     
-}
+
 module.exports = (employeeHtml) => {
 return `
 <!DOCTYPE html>
