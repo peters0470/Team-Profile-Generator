@@ -183,6 +183,25 @@ const addManager = () => {
         });
 };
 
+const addEngineer = () => {
+    return inquirer
+        .prompt(questions.engineer)
+        .then(answers => {
+            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            employees.push(engineer);
+            addEmployee();
+        });
+};
+
+const addIntern = () => {
+    return inquirer
+        .prompt(questions.intern)
+        .then(answers => {
+            const intern = new Intern(answers.name, answers.id, answers.email, answers.schoolName);
+            employees.push(intern);
+            addEmployee();
+        });
+};
 
 addManager();
 
